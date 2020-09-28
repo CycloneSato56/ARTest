@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    </head>
+
+    <body style="margin:0px; overflow:hidden;">
+        <a-scene embedded ar-js='patternRatio=0.9'>
+            <a-assets>
+                <video id="sample-video" src="./video/waterfall.mp4" autoplay
+                    playsinline webkit-playsinline muted="true" loop="true">
+                </video>
+            </a-assets>
+            
+            <!--
+            <a-marker type="pattern" url="./patt/pattern-star.patt">
+                <a-video src="#sample-video" width="1" height="1" position="0 0 0" rotation="270 0 0"></a-video>
+            </a-marker>
+            -->
+            
+            <a-marker type="pattern" url="./patt/pattern-star.patt">
+                <a-video src="#sample-video" width="7.844" height="3.781" position="-4.422 0 -1.390" rotation="270 0 0"></a-video>
+            </a-marker>
+            
+            <a-marker type="pattern" url="./patt/pattern-triangle.patt">
+                <!--
+                <a-box position="0 0.5 0" wireframe="true"></a-box>
+                -->
+                <a-video src="#sample-video" width="2.46" height="1.186" position="-1.73 0 -0.093" rotation="270 0 0"></a-video>
+            </a-marker>
+            <a-entity camera></a-entity>
+        </a-scene>
+    
+        <script>
+            window.addEventListener('click', function () {
+                var v = document.querySelector('#sample-video');
+                v.play();
+            });
+        </script>
+    </body>
+</html>
